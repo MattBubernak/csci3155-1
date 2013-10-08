@@ -52,14 +52,34 @@ object Lab1 {
     if (n < 0) { throw new IllegalArgumentException }
     else if (x0 < 0) { throw new IllegalArgumentException }
     else if (n == 0) {return x0}
-    else { sqrtN(c, sqrtStep(c,x0), n-1) }
+    else { 
+      sqrtN(c, sqrtStep(c,x0), n-1)
+      /*var p = n
+      var xp = x0
+      while ( p > 0){
+        p -= 1
+        if (xp < 0) { throw new IllegalArgumentException }
+        else {xp = xp - ((xp*xp)-c)/(2*xp)}
+      }
+      xp*/
+    }
   }
   
   def sqrtErr(c: Double, x0: Double, epsilon: Double): Double = {
     if (x0 < 0) { throw new IllegalArgumentException }
     else if (epsilon <= 0) { throw new IllegalArgumentException }
     else if (abs((x0*x0)-c) < epsilon) {return x0}
-    else  { sqrtErr(c, sqrtStep(c, x0), epsilon) }
+    else  {
+     sqrtErr(c, sqrtStep(c, x0), epsilon)
+     /*var xp = x0
+     var cp = c
+     var ep = epsilon
+     while (abs((xp*xp)-cp) > ep){
+      if (xp < 0) { throw new IllegalArgumentException }
+      else { xp = xp - ((xp*xp)- cp)/(2*xp) }
+     }
+     xp*/
+      }
   }
   
   def sqrt(c: Double): Double = sqrtErr(c, 1.0, 0.0001)
@@ -74,7 +94,7 @@ object Lab1 {
     def check(t: SearchTree, min: Int, max: Int): Boolean = t match {
       case Empty => true
       case Node(l, d, r) =>
-        if (d >= min && d <= max && check(l, min,d) && check(r, d, max)) {true}
+        if (d >= min && d < max && check(l, min,d) && check(r, d, max)) {true}
         else {false}
     }
     check(t, Int.MinValue, Int.MaxValue)

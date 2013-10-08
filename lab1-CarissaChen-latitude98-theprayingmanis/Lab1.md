@@ -56,7 +56,3 @@ def sqrtErr(c: Double, x0: Double, epsilon: Double): Double = {
   }
 ````
 Again, as can be seen by the code, the `while` loop takes more code than the recursive version.  And some `var` variables needed to be declared in order for the `while` loop to work.  It is not very clear and hard to follow in my opinion.  And I don't think it is as intuitive as the recursive version.
-
-Functional Approach of `insert`
-===============================
-This functional approach of `insert` is required for case classes because the method `insert` accesses each node individually.  It's not like **C++** where can access a successor node and its data with a pointer before going to that node. You have to actually travel to each node with the method `insert`.  Hypothetically, the rest of the tree doesn't exist when looking at one node therefore you can't destructively update the intput tree.
