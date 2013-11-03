@@ -1,0 +1,11 @@
+const test = function (x) { return x/2 }
+const x = 12-2
+const y = false || 3+1
+const z = true
+jsy.print(!(true && z) ? 0 : test(y) * test(x))
+jsy.print(y+x)
+
+// should be
+// 10
+// 14 
+// undefined
