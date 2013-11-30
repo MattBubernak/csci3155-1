@@ -1,0 +1,9 @@
+[0m[[0minfo[0m] [0m[32mObjectSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mObjects [0m[0m
+[0m[[0minfo[0m] [0m[32m- should map fields to values[0m[0m
+[0m[[0minfo[0m] [0m[32mObjects [0m[0m
+[0m[[0minfo[0m] [0m[32m- should perform step on fields[0m[0m
+[0m[[0minfo[0m] [0m[32mGetField [0m[0m
+[0m[[0minfo[0m] [0m[32m- should fetch a field if it's in the object[0m[0m
+[0m[[0minfo[0m] [0m[32mGetField [0m[0m
+[0m[[0minfo[0m] [0m[32m- should get stuck if trying to get a non-existant field[0m[0m

@@ -1,0 +1,35 @@
+[0m[[0minfo[0m] [0m[32mTypeCheckingSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of Numbers as TNumber[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of Strings as TString[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of Booleans as TBool[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of Undefined as TUndefined[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of a negative number as TNumber[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of arithmetic operations as TNumber[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should not allow arithmetic operations on non-numbers[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should allow string concatenation[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of conditional expressions as TBool[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should determine the type of And and Or expressions as TBool[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should not allow type inference[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should ensure that sequence check both expressions for a valid type[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should ensure then and else cases have the same type[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should make sure that call matches function parameters and arguements[0m[0m
+[0m[[0minfo[0m] [0m[32mType checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should ensure that callis provide the same number of arguments as parameters in the function[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should ensure that annotated functions return the correct type[0m[0m
+[0m[[0minfo[0m] [0m[32mType Checking [0m[0m
+[0m[[0minfo[0m] [0m[32m- should check types of the fields of objects[0m[0m
