@@ -4,8 +4,7 @@ object Lab4 {
   /*
    * CSCI 3155: Lab 4
    */
-	//sources: https://github.com/peterklipfel/PL/blob/master/HW4/src/Lab4_pekl2737.scala
-	//sources: https://github.com/chadbryant7/csci3155/tree/master/Documents/SPRING%202013/Principles%20of%20Programming/Local%20Repo
+
   /* Carissa Chen, Bob Werthman, Paul Manis
    * Replace the 'throw new UnsupportedOperationException' expression with
    * your code in each function.
@@ -156,7 +155,7 @@ object Lab4 {
 		case tgot => err(tgot, e1)
 	  }
 	  
-	   case Binary(Plus, e1, e2) => (typ(e1), typ(e2)) match {
+	 case Binary(Plus, e1, e2) => (typ(e1), typ(e2)) match {
 		case (TString, TString) => TString
     case (TNumber, TNumber) => TNumber
 		case _ => err(typ(e1), e1)
@@ -220,9 +219,7 @@ object Lab4 {
 			case(a, _, _) => err(a, p)
 	  }	  
 	  
-	   case Binary(Seq, e1, e2) => (typ(e1), typ(e2)) match {
-      case _ => typ(e2)
-     }
+	   case Binary(Seq, e1, e2) => typ(e2); typ(e1)
 	  
 	  case Binary(op, e1, e2) => (typ(e1), typ(e2)) match {
 		case (TNumber, TNumber) => TNumber
@@ -308,225 +305,8 @@ object Lab4 {
     require(isValue(v))
     
     def subst(e: Expr): Expr = substitute(e, v, x)
-    /*
-    e match {
-      case N(_) | B(_) | Undefined | S(_) => e
-      case Print(e1) => Print(subst(e1))
-      case Unary(uop, e1) => Unary(uop, subst(e1))
-      case Binary(bop, e1, e2) => Binary(bop, subst(e1), subst(e2))
-      case If(e1, e2, e3) => If(subst(e1), subst(e2), subst(e3))
-      case Call(e1, args) => Call(subst(e1), args map subst)
-      case Var(y) => if (x == y) v else e
-      case ConstDecl(y, e1, e2) =>
-        ConstDecl(y, subst(e1), if (x == y) e2 else subst(e2))
-        case GetField(e1, f) => GetField(subst(e1), f)
-      case Obj(params) => Obj(params.mapValues(v => subst(v)))
-      //case Call(e1, args) => Call(subst(e1), args map subst)
-      case Function(p, params, tann, e1) => Function(p, params, tann, subst(e1))
-      case _ => throw new UnsupportedOperationException
-    }
-  }
-  
-  def step(e: Expr): Expr = {
-    require(!isValue(e))
-    
-    def stepIfNotValue(e: Expr): Option[Expr] = if (isValue(e)) None else Some(step(e))
     
     e match {
-      /* Base Cases: Do Rules */
-      case Print(v1) if isValue(v1) => println(pretty(v1)); Undefined
-      case Unary(Neg, N(n1)) => N(- n1)
-      case Unary(Not, B(b1)) => B(! b1)
-      case Binary(Seq, v1, e2) if isValue(v1) => e2
-      case Binary(Plus, S(s1), S(s2)) => S(s1 + s2)
-      case Binary(Plus, N(n1), N(n2)) => N(n1 + n2)
-      case Binary(bop @ (Lt|Le|Gt|Ge), v1, v2) if isValue(v1) && isValue(v2) => B(inequalityVal(bop, v1, v2))
-      case Binary(Eq, v1, v2) if isValue(v1) && isValue(v2) => B(v1 == v2)
-      case Binary(Ne, v1, v2) if isValue(v1) && isValue(v2) => B(v1 != v2)
-      case Binary(And, B(b1), e2) => if (b1) e2 else B(false)
-      case Binary(Or, B(b1), e2) => if (b1) B(true) else e2
-      case ConstDecl(x, v1, e2) if isValue(v1) => substitute(e2, v1, x)
-      /*** Fill-in more cases here. ***/
-      case Binary(Minus, N(n1), N(n2)) => N(n1-n2)
-      case Binary(Times, N(n1), N(n2)) => N(n1*n2)
-      case Binary(Div, N(n1), N(n2)) => N(n1/n2)
-      case If(B(true), e2, e3) => step(e2)
-      case If(B(false), e2, e3) => step(e3)
-      case GetField(Obj(fields), f) => fields.get(f) match {
-        case Some(e) => e
-        case None => throw new StuckError(e)
-      }
-      case Call(Function(None, params, _, e1), args) if (args.foldLeft(true)((truth, x) => truth && isValue(x))) => {
-        val zippedList = params zip args
-        zippedList.foldLeft(e1) { (express, x) =>
-          x match {
-            case ((name, _), value) => substitute(express, value, name)
-          }
-        }
-      }
-      case Call(f1 @ Function(Some(f), params, _, e1), args) if (args.foldLeft(true)((truth, x) => truth && isValue(x))) => {
-        val zippedList = params zip args
-        zippedList.foldLeft(e1) { (express, x) =>
-          x match {
-            case ((name, _), value) => substitute(express, value, name); substitute(express, f1, f)
-          }
-        }
-      }
-
-      /*
-      case Call((func @ Function(p, params, _, bod)), args) if args.forall(isValue) => {
-          val bp = p match {
-            case Some(f) => substitute(bod, func, f)
-            case None => bod
-          }
-        params.zip(args).foldLeft(bp){
-         (e1: Expr, t1: ((String, Typ), Expr)) => substitute(e1, t1._2, t1._1._1)
-        }
-      }
-      */
-      /*
-      case Call( v @ Function(p, params, tann ,e1), args) if args.forall(isValue(x)) => {
-        v match {
-          case Function(None, params, tann, e1) => params.zip(args).foldRight(None){ substitute(e1, , params.foldRight(0)())
-          case Function(Some(f), params, tann ,e1)
-        }
-      }
-      */
-      /* Inductive Cases: Search Rules */
-      case Print(e1) => Print(step(e1))
-      case Unary(uop, e1) => Unary(uop, step(e1))
-      case Binary(bop, v1, e2) if isValue(v1) => Binary(bop, v1, step(e2))
-      case Binary(bop, e1, e2) => Binary(bop, step(e1), e2)
-      case If(e1, e2, e3) => If(step(e1), e2, e3)
-      case ConstDecl(x, e1, e2) => ConstDecl(x, step(e1), e2)
-      /*** Fill-in more cases here. ***/
-      case Obj(fields) => Obj(fields.mapValues((exp: Expr) => step(exp)))
-      case GetField(e1, f) => GetField(step(e1), f)
-      //case Obj(fields) => fields.find { case (a,b) => !isValue(b) }
-      //case Call(Function(p, params, tann, e1), args) => Call(Function(p, params, tann, e1), mapFirst((arg: Expr) => stepIfNotValue(arg))(args)) 
-      case Call(v1 @ Function(_, _, _, _), args) => {
-        val args1 = mapFirst { (a: Expr) => if (!isValue(a)) Some(step(a)) else None }(args)
-        Call(v1, args1)
-      }
-      case Call(e1, args) => Call(step(e1), args)
-
-      /* Everything else is a stuck error. */
-      case _ => throw new StuckError(e)
-    }
-  }
-
-  def iterateStep(e: Expr): Expr =
-    if (isValue(e)) e else iterateStep(step(e))
-    
-}*/
-/*
-e match {
-      case N(_) | B(_) | Undefined | S(_) => e
-      case Print(e1) => Print(subst(e1))
-      case Unary(uop, e1) => Unary(uop, subst(e1))
-      case Binary(bop, e1, e2) => Binary(bop, subst(e1), subst(e2))
-      case If(e1, e2, e3) => If(subst(e1), subst(e2), subst(e3))
-      case Var(y) => if (x == y) v else e
-      case ConstDecl(y, e1, e2) => ConstDecl(y, subst(e1), if (x == y) e2 else subst(e2))
-      case GetField(e1, f) => GetField(subst(e1), f)
-      case Obj(params) => Obj(params.mapValues(v => subst(v)))
-      case Call(e1, args) => Call(subst(e1), args map subst)
-      case f1 @ Function(p, params, tann, e1) => {
-        if (params.exists((t1: (String, Typ)) => t1._1 == x) || Some(x) == p) {
-          f1
-        } else {
-          Function(p, params, tann, subst(e1))
-        }
-      }
-      case _ => println("the following fields were not found"); println(e); throw new UnsupportedOperationException
-    }
-  }
-
-  def step(e: Expr): Expr = {
-    require(!isValue(e))
-
-    def stepIfNotValue(e: Expr): Option[Expr] = if (isValue(e)) None else Some(step(e))
-
-    e match {
-      /* Base Cases: Do Rules */
-      case Print(v1) if isValue(v1) => println(pretty(v1)); Undefined
-      case Unary(Neg, N(n1)) => N(-n1)
-      case Unary(Not, B(b1)) => B(!b1)
-      case Binary(Seq, v1, e2) if isValue(v1) => e2
-      case Binary(Plus, S(s1), S(s2)) => S(s1 + s2)
-      case Binary(Plus, N(n1), N(n2)) => N(n1 + n2)
-      case Binary(Minus, N(n1), N(n2)) => N(n1 - n2)
-      case Binary(Times, N(n1), N(n2)) => N(n1 * n2)
-      case Binary(Div, N(n1), N(n2)) => N(n1 / n2)
-      case Binary(bop @ (Lt | Le | Gt | Ge), v1, v2) if isValue(v1) && isValue(v2) => B(inequalityVal(bop, v1, v2))
-      case Binary(Eq, v1, v2) if isValue(v1) && isValue(v2) => B(v1 == v2)
-      case Binary(Ne, v1, v2) if isValue(v1) && isValue(v2) => B(v1 != v2)
-      case Binary(And, B(b1), e2) => if (b1) e2 else B(false)
-      case Binary(Or, B(b1), e2) => if (b1) B(true) else e2
-      case ConstDecl(x, v1, e2) if isValue(v1) => substitute(e2, v1, x)
-      /*** Fill-in more cases here. ***/
-      case If(B(true), e2, e3) => e2
-      case If(B(false), e2, e3) => e3
-      case GetField(Obj(fields), f) if (fields.forall {
-        case (_, vi) => isValue(vi)
-      }) => fields.get(f) match {
-        case None => throw new StuckError(e)
-        case Some(v) => v
-      }
-      case Call(Function(None, params, _, e1), args) if (args.foldLeft(true)((truth, x) => truth && isValue(x))) => {
-        val zippedList = params zip args
-        zippedList.foldLeft(e1) { (express, x) =>
-          x match {
-            case ((name, _), value) => substitute(express, value, name)
-          }
-        }
-      }
-      case Call(f1 @ Function(Some(f), params, _, e1), args) if (args.foldLeft(true)((truth, x) => truth && isValue(x))) => {
-        val zippedList = params zip args
-        zippedList.foldLeft(e1) { (express, x) =>
-          x match {
-            case ((name, _), value) => substitute(express, value, name); substitute(e1, f1, f)
-          }
-        }
-      }
-
-      /* Inductive Cases: Search Rules */
-      case Print(e1) => Print(step(e1))
-      case Unary(uop, e1) => Unary(uop, step(e1))
-      case Binary(bop, v1, e2) if isValue(v1) => Binary(bop, v1, step(e2))
-      case Binary(bop, e1, e2) => Binary(bop, step(e1), e2)
-      case If(e1, e2, e3) => If(step(e1), e2, e3)
-      case ConstDecl(x, e1, e2) => ConstDecl(x, step(e1), e2)
-      /*** Fill-in more cases here. ***/
-      case Call(v1 @ Function(_, _, _, _), args) => {
-        val args1 = mapFirst { (a: Expr) => if (!isValue(a)) Some(step(a)) else None }(args)
-        Call(v1, args1)
-      }
-      case Call(e1, args) => Call(step(e1), args)
-      case GetField(e1, f) => GetField(step(e1), f)
-      case Obj(f) => {
-        val fList = f.toList
-        def newFunction(arg: (String, Expr)): Option[(String, Expr)] = {
-          arg match {
-            case (s, e1) => if (!isValue(e1)) Some(s, step(e1)) else None
-          }
-        }
-        val newList = mapFirst(newFunction)(fList)
-        val fMap = newList.toMap
-        Obj(fMap)
-      }
-
-      /* Everything else is a stuck error. */
-      case _ => println(e); throw new StuckError(e)
-    }
-  }
-
-  def iterateStep(e: Expr): Expr =
-    if (isValue(e)) e else iterateStep(step(e))
-
-}*/
-
-e match {
       case N(_) | B(_) | Undefined | S(_) => e
       case Print(e1) => Print(subst(e1))
       case Unary(uop, e1) => Unary(uop, subst(e1))
@@ -548,8 +328,7 @@ e match {
       case _ => throw new UnsupportedOperationException
     }
   }
-  
-  def step(e: Expr): Expr = {
+def step(e: Expr): Expr = {
     require(!isValue(e))
     
     def stepIfNotValue(e: Expr): Option[Expr] = if (isValue(e)) None else Some(step(e))

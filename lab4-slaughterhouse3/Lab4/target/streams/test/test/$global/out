@@ -1,13 +1,13 @@
-[0m[[0mdebug[0m] [0mRunning TaskDef(SeqSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(ArithmeticSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(IfSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(ComparisonSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(ConstSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(ObjectSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(TypeCheckingSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(UnarySpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(AndOrSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(FunctionCallSpec, sbt.SubclassFingerprintWrapper@10da3e7, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(SeqSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(ArithmeticSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(IfSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(ComparisonSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(ConstSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(ObjectSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(TypeCheckingSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(UnarySpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(AndOrSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(FunctionCallSpec, sbt.SubclassFingerprintWrapper@16feee5, false, [SuiteSelector])[0m
 [0m[[0mdebug[0m] [0mSummary for ScalaTest not available.[0m
 [0m[[0minfo[0m] [0mPassed: Total 53, Failed 0, Errors 0, Passed 53[0m
 [0m[[0mdebug[0m] [0mPassed tests:[0m

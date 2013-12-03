@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for lab4#lab4_2.9.1;1.0 [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies lab4#lab4_2.9.1;1.0->org.scala-lang#scala-library;2.9.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.9.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1839bb3[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1dbdf42[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.9.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.9.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.9.1 in sbt-chain[0m
@@ -138,7 +138,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.9.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.9.1!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 512ms :: artifacts dl 25ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 572ms :: artifacts dl 24ms[0m
 [0m[[0mdebug[0m] [0m	report for lab4#lab4_2.9.1;1.0 compile produced in /home/user/lab4-slaughterhouse3/Lab4/target/resolution-cache/reports/lab4-lab4_2.9.1-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for lab4#lab4_2.9.1;1.0 runtime produced in /home/user/lab4-slaughterhouse3/Lab4/target/resolution-cache/reports/lab4-lab4_2.9.1-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for lab4#lab4_2.9.1;1.0 test produced in /home/user/lab4-slaughterhouse3/Lab4/target/resolution-cache/reports/lab4-lab4_2.9.1-test.xml[0m
@@ -152,5 +152,5 @@
 [0m[[0mdebug[0m] [0m	report for lab4#lab4_2.9.1;1.0 docs produced in /home/user/lab4-slaughterhouse3/Lab4/target/resolution-cache/reports/lab4-lab4_2.9.1-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for lab4#lab4_2.9.1;1.0 pom produced in /home/user/lab4-slaughterhouse3/Lab4/target/resolution-cache/reports/lab4-lab4_2.9.1-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for lab4#lab4_2.9.1;1.0 scala-tool produced in /home/user/lab4-slaughterhouse3/Lab4/target/resolution-cache/reports/lab4-lab4_2.9.1-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (512ms resolve - 25ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (572ms resolve - 24ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

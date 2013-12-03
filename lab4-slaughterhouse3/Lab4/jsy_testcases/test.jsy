@@ -1,0 +1,21 @@
+
+const test = {
+	help: function(a: bool, b: number) {
+	  return { _1 :a && false, _2 :b + 2 }
+	},
+	map: function(f: (i: number) => number, p:  { _1: bool; _2: number }) {
+	  return { _1: p._1 , _2: f(p._2) }
+	 }
+}
+const one = test.help(true, 1)
+const two = test.map((i:number) => i*2, one)
+
+const fun = function(n:number)
+{ return (n >= 1 ? n/2*n : n) }
+
+const notfun = function(h: number, e: number, l: number, p: number) {
+	return ( fun(h) + e - l * p)
+}
+
+fun(two._2)
+notfun(fun(two._2), 3 , 5, 6)
