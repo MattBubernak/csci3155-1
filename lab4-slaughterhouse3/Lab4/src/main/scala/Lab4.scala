@@ -5,7 +5,7 @@ object Lab4 {
    * CSCI 3155: Lab 4
    */
 
-  /* Carissa Chen, Bob Werthman, Paul Manis
+  /* 
    * Replace the 'throw new UnsupportedOperationException' expression with
    * your code in each function.
    * 
