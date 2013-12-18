@@ -3,9 +3,9 @@ object Lab3 {
   
   /*
    * CSCI 3155: Lab 3 
-   * Robert Werthman
    * 
-   * Partner: Carissa Tara Chen, Paul Manis
+   * 
+   * Partner: 
    * Collaborators: <Any Collaborators>
    */
 
