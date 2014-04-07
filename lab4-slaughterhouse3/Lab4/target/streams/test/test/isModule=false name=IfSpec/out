@@ -1,5 +1,0 @@
-[0m[[0minfo[0m] [0m[32mIfSpec:[0m[0m
-[0m[[0minfo[0m] [0m[32mIf [0m[0m
-[0m[[0minfo[0m] [0m[32m- should evaluate the first expression if the conditional is true using small-step semantics[0m[0m
-[0m[[0minfo[0m] [0m[32mIf [0m[0m
-[0m[[0minfo[0m] [0m[32m- should evaluate the second expression if the conditional is false using small-step semantics[0m[0m

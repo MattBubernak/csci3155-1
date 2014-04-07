@@ -1,5 +1,0 @@
-[0m[[0minfo[0m] [0m[32mAndOrSpec:[0m[0m
-[0m[[0minfo[0m] [0m[32mAnd [0m[0m
-[0m[[0minfo[0m] [0m[32m- should return true only if both expressions are true using small-step semantics[0m[0m
-[0m[[0minfo[0m] [0m[32mOr [0m[0m
-[0m[[0minfo[0m] [0m[32m- should return true if either or both expressions are true using small-step semantics[0m[0m
